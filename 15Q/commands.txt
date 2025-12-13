@@ -1,0 +1,22 @@
+// 1. Insert books
+db.BookInventory.insertMany([
+ {title:"Dune",author:"Frank Herbert",category:"Science Fiction",availableCopies:5},
+ {title:"Foundation",author:"Isaac Asimov",category:"Science Fiction",availableCopies:3},
+ {title:"1984",author:"George Orwell",category:"Fiction",availableCopies:4},
+ {title:"Sapiens",author:"Yuval Harari",category:"History",availableCopies:2},
+ {title:"Clean Code",author:"Robert Martin",category:"Technology",availableCopies:6},
+ {title:"The Martian",author:"Andy Weir",category:"Science Fiction",availableCopies:1},
+ {title:"Old Book",author:"Unknown",category:"Fiction",availableCopies:0}
+]);
+
+// 2. Retrieve Science Fiction books
+db.BookInventory.find({ category: "Science Fiction" });
+
+// 3. Decrease availableCopies on purchase
+db.BookInventory.updateOne(
+ { title: "Dune" },
+ { $inc: { availableCopies: -1 } }
+);
+
+// 4. Delete out-of-stock books
+db.BookInventory.deleteMany({ availableCopies: 0 });
