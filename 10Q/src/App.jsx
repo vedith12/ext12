@@ -1,15 +1,24 @@
-function Students() {
-  const data = [
-    { id: 1, name: "Amit" },
-    { id: 2, name: "Riya" },
-    { id: 3, name: "Suresh" }
+import React from "react";
+
+function StudentList() {
+  const students = [
+    { roll: 1, name: "Amit", branch: "CSE" },
+    { roll: 2, name: "Riya", branch: "ECE" },
+    { roll: 3, name: "Suresh", branch: "EEE" }
   ];
 
   return (
-    <ul>
-      {data.map(s => <li key={s.id}>{s.name}</li>)}
-    </ul>
+    <div>
+      <h3>Student List</h3>
+      <ul>
+        {students.map(s => (
+          <li key={s.roll}>
+            {s.roll} - {s.name} ({s.branch})
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 
-export default Students;
+export default StudentList;
