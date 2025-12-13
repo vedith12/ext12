@@ -1,24 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 
-function StudentList() {
+export default function App() {
   const students = [
-    { roll: 1, name: "Amit", branch: "CSE" },
-    { roll: 2, name: "Riya", branch: "ECE" },
-    { roll: 3, name: "Suresh", branch: "EEE" }
+    { name: "Amit", marks: 85 },
+    { name: "Neha", marks: 90 },
+    { name: "Ravi", marks: 78 },
+    { name: "Pooja", marks: 88 },
+    { name: "Kiran", marks: 92 },
+    { name: "Anu", marks: 80 }
   ];
+
+  const [page, setPage] = useState(0);
+  const perPage = 3;
+
+  const start = page * perPage;
+  const data = students.slice(start, start + perPage);
 
   return (
     <div>
-      <h3>Student List</h3>
-      <ul>
-        {students.map(s => (
-          <li key={s.roll}>
-            {s.roll} - {s.name} ({s.branch})
-          </li>
-        ))}
-      </ul>
+      {data.map((s, i) => (
+        <p key={i}>{s.name} - {s.marks}</p>
+      ))}
+
+      <button disabled={page === 0} onClick={() => setPage(page - 1)}>
+        Previous
+      </button>
+      <button
+        disabled={start + perPage >= students.length}
+        onClick={() => setPage(page + 1)}
+      >
+        Next
+      </button>
     </div>
   );
 }
-
-export default StudentList;
