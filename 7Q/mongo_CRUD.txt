@@ -1,0 +1,32 @@
+// CREATE – Insert 5 records
+db.students.insertMany([
+  { roll: 1, name: "Amit",  branch: "CSE", year: 2 },
+  { roll: 2, name: "Neha",  branch: "ECE", year: 3 },
+  { roll: 3, name: "Ravi",  branch: "EEE", year: 1 },
+  { roll: 4, name: "Pooja", branch: "IT",  year: 4 },
+  { roll: 5, name: "Kiran", branch: "ME",  year: 2 }
+])
+
+// READ – View all records
+db.students.find()
+
+// UPDATE – Change branch using $set
+db.students.updateOne(
+  { roll: 3 },
+  { $set: { branch: "CSE" } }
+)
+
+// UPDATE – Increment year using $inc
+db.students.updateMany(
+  { year: { $lt: 4 } },
+  { $inc: { year: 1 } }
+)
+
+// UPDATE – Rename field
+db.students.updateMany(
+  {},
+  { $rename: { year: "studyYear" } }
+)
+
+// DELETE – Remove one record
+db.students.deleteOne({ roll: 5 })

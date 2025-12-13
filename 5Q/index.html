@@ -1,0 +1,22 @@
+<html>
+
+<body>
+
+    <p id="r"></p>
+
+    <script>
+        function checkNumber(n) {
+            return new Promise((resolve, reject) => {
+                if (n > 0) resolve("Positive Number");
+                else reject("Not Positive");
+            });
+        }
+
+        checkNumber(5)
+            .then(msg => r.innerHTML = msg)
+            .catch(err => r.innerHTML = err);
+    </script>
+
+</body>
+
+</html>

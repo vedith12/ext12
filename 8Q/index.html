@@ -1,0 +1,20 @@
+<html>
+
+<body>
+
+    <input id="n" placeholder="5,2,9,1">
+    <button onclick="s()">Sort</button>
+    <p id="r"></p>
+
+    <script>
+        function s() {
+            var a = n.value.split(",").map(Number);
+            var asc = [...a].sort((x, y) => x - y);
+            var dsc = [...a].sort((x, y) => y - x);
+            r.innerHTML = "Asc: " + asc + "<br>Desc: " + dsc;
+        }
+    </script>
+
+</body>
+
+</html>

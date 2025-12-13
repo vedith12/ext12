@@ -1,0 +1,15 @@
+<html>
+
+<body>
+
+    <ul id="u"></ul>
+
+    <script>
+        fetch("https://jsonplaceholder.typicode.com/users")
+            .then(r => r.json())
+            .then(d => d.forEach(x => u.innerHTML += `<li>${x.name}</li>`));
+    </script>
+
+</body>
+
+</html>

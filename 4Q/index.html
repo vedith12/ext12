@@ -1,0 +1,20 @@
+<html>
+
+<body>
+
+    <input id="num">
+    <button onclick="f()">Find</button>
+    <p id="res"></p>
+
+    <script>
+        function f() {
+            var n = document.getElementById("num").value;
+            var fact = 1;
+            for (i = 1; i <= n; i++) fact *= i;
+            document.getElementById("res").innerHTML = fact;
+        }
+    </script>
+
+</body>
+
+</html>
