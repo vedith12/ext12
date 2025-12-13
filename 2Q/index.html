@@ -1,0 +1,25 @@
+<html>
+
+<body>
+
+    <form onsubmit="return v()">
+        Roll: <input id="r"><br>
+        Email: <input id="e"><br>
+        Phone: <input id="p"><br>
+        <span id="m" style="color:red"></span><br>
+        <input type="submit">
+    </form>
+
+    <script>
+        function v() {
+            if (!/^[0-9]+$/.test(r.value)) m.innerHTML = "Invalid Roll No";
+            else if (!/^[^@]+@[^@]+\.[a-z]{2,}$/.test(e.value)) m.innerHTML = "Invalid Email";
+            else if (!/^[0-9]{10}$/.test(p.value)) m.innerHTML = "Invalid Phone";
+            else return true;
+            return false;
+        }
+    </script>
+
+</body>
+
+</html>
