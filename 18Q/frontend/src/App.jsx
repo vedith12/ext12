@@ -1,4 +1,3 @@
-import { use } from "react";
 import { useState } from "react";
 
 export default function App() {
@@ -7,7 +6,11 @@ export default function App() {
 
   return (
     <>
-      <input type="text" value={user} placeholder="Enter Username" onChange={e => setUser(e.target.value)} />
+      <input
+        placeholder="Enter Username"
+        value={user}
+        onChange={e => setUser(e.target.value)}
+      />
 
       <button onClick={() =>
         fetch(`http://localhost:3000/users/${user}`)
@@ -24,8 +27,6 @@ export default function App() {
       }>
         All Users
       </button>
-
-
 
       <p>{out}</p>
     </>
