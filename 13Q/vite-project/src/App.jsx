@@ -16,13 +16,11 @@ export default function Login() {
     <>
       <input
         placeholder="Username"
-        value={user}
         onChange={(e) => setUser(e.target.value)}
       />
       <input
         type="password"
         placeholder="Password"
-        value={pass}
         onChange={(e) => setPass(e.target.value)}
       />
       <button onClick={handleLogin}>Login</button>
