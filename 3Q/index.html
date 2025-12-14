@@ -2,13 +2,13 @@
 
 <body>
 
-    <input id="n">
+    <input type="number" id="num">
     <button onclick="s()">Square</button>
     <p id="r"></p>
 
     <script>
         const sq = x => x * x;
-        const s = () => r.innerHTML = sq(n.value);
+        const s = () => r.innerHTML = sq(num.value);
     </script>
 
 </body>

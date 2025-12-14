@@ -10,14 +10,19 @@ export default function Password() {
     length: p.length >= 8,
   };
 
-  const score = Object.values(checks).filter(Boolean).length;
+  const score =
+    (checks.upper ? 1 : 0) +
+    (checks.number ? 1 : 0) +
+    (checks.special ? 1 : 0) +
+    (checks.length ? 1 : 0);
+
 
   const strength =
     score <= 1 ? "Weak" : score <= 3 ? "Medium" : "Strong";
 
   const color =
     strength === "Weak" ? "#e74c3c" :
-    strength === "Medium" ? "#f39c12" : "#27ae60";
+      strength === "Medium" ? "#f39c12" : "#27ae60";
 
   return (
     <div style={{ width: "250px", fontFamily: "Arial" }}>

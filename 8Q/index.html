@@ -3,15 +3,20 @@
 <body>
 
     <input id="n" placeholder="5,2,9,1">
-    <button onclick="s()">Sort</button>
+    <button onclick="asc()">Ascending</button>
+    <button onclick="dsc()">Descending</button>
     <p id="r"></p>
 
     <script>
-        function s() {
+        function asc() {
             var a = n.value.split(",").map(Number);
             var asc = [...a].sort((x, y) => x - y);
+            r.innerHTML = "Ascending: " + asc;
+        }
+        function dsc() {
+            var a = n.value.split(",").map(Number);
             var dsc = [...a].sort((x, y) => y - x);
-            r.innerHTML = "Asc: " + asc + "<br>Desc: " + dsc;
+            r.innerHTML = "<br>Descending: " + dsc;
         }
     </script>
 

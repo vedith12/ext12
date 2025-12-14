@@ -11,6 +11,7 @@ app.get("/", (req, res) => {
   res.send("Home page");
 });
 
+
 app.listen(3000, () => {
-  console.log("Server running");
+  console.log("Server running om port 3000");
 });

@@ -8,10 +8,11 @@
 
     <script>
         function f() {
-            var n = document.getElementById("num").value;
-            var fact = 1;
-            for (i = 1; i <= n; i++) fact *= i;
-            document.getElementById("res").innerHTML = fact;
+            let fact = 1;
+            for (i = 1 ; i <= num.value; i++) {
+                fact *= i;
+            }
+            res.innerHTML = fact;
         }
     </script>
 

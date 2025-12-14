@@ -2,6 +2,7 @@
 
 <body>
 
+    <input type="number" id="n" onchange="s()">
     <p id="r"></p>
 
     <script>
@@ -11,10 +12,14 @@
                 else reject("Not Positive");
             });
         }
+        function s() {
 
-        checkNumber(5)
-            .then(msg => r.innerHTML = msg)
-            .catch(err => r.innerHTML = err);
+            let num = n.value;
+
+            if (num) checkNumber(num)
+                .then(msg => r.innerHTML = msg)
+                .catch(err => r.innerHTML = err);
+        }
     </script>
 
 </body>
