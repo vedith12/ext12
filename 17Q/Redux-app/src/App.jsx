@@ -12,7 +12,7 @@ const sortStudents = (order) => ({
 
 const initialState = {
   students: [
-    { name: "Rasagna", marks: 70 },
+    { name: "Sai", marks: 70 },
     { name: "Jeevan", marks: 85 },
     { name: "C", marks: 60 },
   ],
