@@ -1,6 +1,6 @@
 const router = require("express").Router();
 
-const users = ["sai", "jeevan"];
+const users = ["vedith", "jeevan"];
 
 // GET /users → all users
 router.get("/", (req, res) => {

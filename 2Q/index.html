@@ -2,7 +2,7 @@
 
 <body>
 
-    <form onsubmit="return v()">
+    <form onsubmit="return validate()">
         Roll: <input id="r"><br>
         Email: <input id="e"><br>
         Phone: <input id="p"><br>
@@ -12,7 +12,7 @@
     </form>
 
     <script>
-        function v() {
+        function validate() {
             s.innerHTML = "Form Submitted";
             m.innerHTML = "";
             if (!/^[0-9]+$/.test(r.value)) m.innerHTML += "<br>Invalid Roll No";

@@ -1,47 +1,38 @@
 import { useState } from "react";
 
 export default function Password() {
-  const [p, setP] = useState("");
+  const [password, setPassword] = useState("");
 
-  const checks = {
-    upper: /[A-Z]/.test(p),
-    number: /\d/.test(p),
-    special: /[^A-Za-z0-9]/.test(p),
-    length: p.length >= 8,
-  };
+  const hasUpper = /[A-Z]/.test(password);
+  const hasNumber = /\d/.test(password);
+  const hasSpecial = /[^A-Za-z0-9]/.test(password);
+  const hasLength = password.length >= 8;
 
   const score =
-    (checks.upper ? 1 : 0) +
-    (checks.number ? 1 : 0) +
-    (checks.special ? 1 : 0) +
-    (checks.length ? 1 : 0);
+    hasUpper + hasNumber + hasSpecial + hasLength;
 
+  let strength = "Weak";
+  let color = "red";
 
-  const strength =
-    score <= 1 ? "Weak" : score <= 3 ? "Medium" : "Strong";
-
-  const color =
-    strength === "Weak" ? "#e74c3c" :
-      strength === "Medium" ? "#f39c12" : "#27ae60";
+  if (score >= 3) {
+    strength = "Medium";
+    color = "orange";
+  }
+  if (score === 4) {
+    strength = "Strong";
+    color = "green";
+  }
 
   return (
-    <div style={{ width: "250px", fontFamily: "Arial" }}>
+    <div style={{ width: 250 }}>
       <input
         type="password"
         placeholder="Enter password"
-        value={p}
-        onChange={(e) => setP(e.target.value)}
-        style={{
-          width: "100%",
-          padding: "8px",
-          border: `2px solid ${color}`,
-          borderRadius: "4px",
-          outline: "none",
-        }}
+        value={password}
+        onChange={e => setPassword(e.target.value)}
+        style={{ border: `2px solid ${color}`, padding: 8 }}
       />
-      <p style={{ color, marginTop: "6px", fontWeight: "bold" }}>
-        {strength}
-      </p>
+      <p style={{ color }}>{strength}</p>
     </div>
   );
 }

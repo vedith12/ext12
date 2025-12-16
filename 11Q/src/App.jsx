@@ -10,7 +10,7 @@ export default function App() {
 
   return (
     <div>
-      <p>{count}</p>
+      <p> count: {count}</p>
       <button onClick={() => setCount(count + 1)}>Increment</button>
     </div>
   );

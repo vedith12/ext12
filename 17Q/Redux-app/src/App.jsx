@@ -3,10 +3,10 @@ import { Provider, useDispatch, useSelector } from "react-redux";
 
 /* ---------- Redux ---------- */
 
-const SORT = "SORT";
+// const SORT = "SORT";
 
 const sortStudents = (order) => ({
-  type: SORT,
+  type: "SORT",
   order,
 });
 
@@ -19,7 +19,7 @@ const initialState = {
 };
 
 function reducer(state = initialState, action) {
-  if (action.type === SORT) {
+  if (action.type === "SORT") {
     const sorted = [...state.students].sort((a, b) =>
       action.order === "asc" ? a.marks - b.marks : b.marks - a.marks
     );

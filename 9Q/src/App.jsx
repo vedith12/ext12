@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useEffect } from 'react'
+// import { useEffect } from 'react'
 
 export default function App() {
   const [a, setA] = useState(0)

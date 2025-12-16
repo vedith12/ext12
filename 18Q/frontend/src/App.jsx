@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export default function App() {
-  const [out, setOut] = useState("");
+  const [response, setResponse] = useState("");
   const [user, setUser] = useState("");
 
   return (
@@ -15,7 +15,7 @@ export default function App() {
       <button onClick={() =>
         fetch(`http://localhost:3000/users/${user}`)
           .then(r => r.text())
-          .then(setOut)
+          .then(setResponse)
       }>
         Fetch
       </button>
@@ -23,12 +23,12 @@ export default function App() {
       <button onClick={() =>
         fetch("http://localhost:3000/users")
           .then(r => r.text())
-          .then(setOut)
+          .then(setResponse)
       }>
         All Users
       </button>
 
-      <p>{out}</p>
+      <p>{response}</p>
     </>
   );
 }
