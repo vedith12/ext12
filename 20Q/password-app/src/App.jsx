@@ -14,7 +14,7 @@ export default function Password() {
   let strength = "Weak";
   let color = "red";
 
-  if (score >= 3) {
+  if (score === 3) {
     strength = "Medium";
     color = "orange";
   }
@@ -32,7 +32,7 @@ export default function Password() {
         onChange={e => setPassword(e.target.value)}
         style={{ border: `2px solid ${color}`, padding: 8 }}
       />
-      <p style={{ color }}>{strength}</p>
+      <p style={{ color : `${color}` }}>{strength}</p>
     </div>
   );
 }
